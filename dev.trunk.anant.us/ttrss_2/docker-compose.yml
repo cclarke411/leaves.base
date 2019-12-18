@@ -1,0 +1,14 @@
+ttrss:
+  image: clue/ttrss
+  restart: always
+  ports:
+     - "81:80"
+  expose:
+     - "81"
+  links:
+    - ttrssdb:db
+  environment:
+    VIRTUAL_HOST: qrisp.eastus.cloudapp.azure.com
+
+ttrssdb:
+  image: norganon/postgres
